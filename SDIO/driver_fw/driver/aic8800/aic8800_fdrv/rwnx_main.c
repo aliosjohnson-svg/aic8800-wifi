@@ -4201,22 +4201,15 @@ end:
 static int
 rwnx_cfg80211_tdls_mgmt(struct wiphy *wiphy,
 	struct net_device *dev,
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 16, 0)
 	const u8 *peer,
-#else
-	u8 *peer,
-#endif
 	u8 action_code,
 	u8 dialog_token,
 	u16 status_code,
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 15, 0)
 	u32 peer_capability,
-#endif
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 17, 0)
 	bool initiator,
-#endif
 	const u8 *buf,
-	size_t len)
+	size_t len,
+	u32 ch_sw_tm_us)
 
 {
 	#if LINUX_VERSION_CODE < KERNEL_VERSION(3, 15, 0)
